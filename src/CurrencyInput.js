@@ -11,7 +11,9 @@ export const CurrencyInput = (props) => {
       />
       <select value={props.currency} onChange={(e) => props.onCurrencyChange(e.target.value)}>
         {props.currencies.map((currency) => (
-          <option value={currency}>{currency}</option>
+          <option key={currency} value={currency}>
+            {currency}
+          </option>
         ))}
       </select>
     </div>
