@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/digital-security-test/static/css/main.681c3caa.css",
+    "main.js": "/digital-security-test/static/js/main.4b7ed7a5.js",
+    "index.html": "/digital-security-test/index.html",
+    "main.681c3caa.css.map": "/digital-security-test/static/css/main.681c3caa.css.map",
+    "main.4b7ed7a5.js.map": "/digital-security-test/static/js/main.4b7ed7a5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.681c3caa.css",
+    "static/js/main.4b7ed7a5.js"
+  ]
+}
