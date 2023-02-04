@@ -1,14 +1,16 @@
-import { CurrencyInput } from './CurrencyInput'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
+import { CurrencyInput } from './CurrencyInput'
+
 import './App.css'
 
 function App() {
-  const [amountFrom, setAmountFrom] = useState(1)
-  const [amountTo, setAmountTo] = useState(1)
-  const [currencyFrom, setCurrencyFrom] = useState('USD')
-  const [currencyTo, setCurrencyTo] = useState('EUR')
-  const [rates, setRates] = useState([])
+  const [amountFrom, setAmountFrom] = useState<number>(1)
+  const [amountTo, setAmountTo] = useState<number>(1)
+  const [currencyFrom, setCurrencyFrom] = useState<string>('USD')
+  const [currencyTo, setCurrencyTo] = useState<string>('EUR')
+  const [rates, setRates] = useState<[]>([])
 
   useEffect(() => {
     axios
@@ -24,26 +26,26 @@ function App() {
     }
   }, [rates])
 
-  const format = (number) => {
-    return number.toFixed(4)
+  const format = (number: number) => {
+    return +number.toFixed(4)
   }
 
-  const handleAmountFromChange = (amountFrom) => {
+  const handleAmountFromChange = (amountFrom: number) => {
     setAmountTo(format((amountFrom * rates[currencyTo]) / rates[currencyFrom]))
     setAmountFrom(amountFrom)
   }
 
-  const handleCurrencyFromChange = (currencyFrom) => {
+  const handleCurrencyFromChange = (currencyFrom: string) => {
     setAmountTo(format((amountFrom * rates[currencyTo]) / rates[currencyFrom]))
     setCurrencyFrom(currencyFrom)
   }
 
-  const handleAmountToChange = (amountTo) => {
+  const handleAmountToChange = (amountTo: number) => {
     setAmountFrom(format((amountTo * rates[currencyFrom]) / rates[currencyTo]))
     setAmountTo(amountTo)
   }
 
-  const handleCurrencyToChange = (currencyTo) => {
+  const handleCurrencyToChange = (currencyTo: string) => {
     setAmountFrom(format((amountTo * rates[currencyFrom]) / rates[currencyTo]))
     setCurrencyTo(currencyTo)
   }

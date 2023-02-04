@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types'
+
 import './currencyInput.css'
 
-export const CurrencyInput = (props) => {
+type CurrencyInputProps = {
+  onAmountChange: (number: number | string) => void
+  onCurrencyChange: (string: string) => void
+  currencies: string[]
+  amount: number
+  currency: string
+}
+
+export const CurrencyInput: React.FC<CurrencyInputProps> = (props) => {
   return (
     <div className='group'>
       <input
